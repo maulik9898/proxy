@@ -10,7 +10,7 @@ import sys
 
 log.startLogging(sys.stdout)
 
-print(os.getenv('PORT',8080) )
+print(int(os.getenv('PORT',8080) ))
 
 class ProxyFactory(http.HTTPFactory):
 
@@ -18,6 +18,6 @@ class ProxyFactory(http.HTTPFactory):
 
 
 
-reactor.listenTCP(os.getenv('PORT',8080), ProxyFactory( ))
+reactor.listenTCP(int(os.getenv('PORT',8080)), ProxyFactory( ))
 
 reactor.run( )
